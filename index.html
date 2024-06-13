@@ -1,0 +1,199 @@
+<html>
+    <head>
+        <title>Website lokal host Juli</title>
+        <style>
+            Hr {color:rgb(173, 76, 11);}
+            Body {background-color:rgb(13, 167, 64)}
+        </style>
+
+            <div class="text-container">
+                <p>Hello, world!</p>
+            </div>
+        </body>
+        </html>
+        
+    </head>
+
+
+    <!-- jumbotron -->
+    <div class="jumbotron text-center">
+        <h1>Dr. Stone's library:D</h1>
+           <h2>
+            selamat datang dan salam hangat untuk semua >///<
+           </h2>
+        </p>
+      </div>
+      <!-- akhir jumbotron -->
+
+
+
+    <body>
+        <div>
+            <!-- content 1 -->
+            <a href="https://perpustakaan.umsu.ac.id/">
+                <img src="perpus umsu.jpg" alt="foto perpustakaan umsu" width="300" height="200">
+            <p style="color:rgb(204, 211, 209);margin-left:20px;">Perpustakaan UMSU</p>
+            </a>
+        </div>
+        <!-- content 1 end-->
+    </div>
+    <div>
+        <!-- content 2 -->
+        <a href="https://library.polmed.ac.id/slims/">
+            <img src="perpus polmed.jpg" alt="foto perpustakaan negeri medan" width="300" height="200">
+        <p style="color:rgb(221, 216, 215);margin-left:20px;">Perpustakaan Politeknik Negeri Medan</p>
+        </a>
+    </div>
+        <!-- content 2 end-->
+     </div>
+     <div>
+        <!-- content 3 -->
+        <a href="https://perpustakaan.uma.ac.id/">
+            <img src="perpus uma.webp" alt="foto perpustakaan universitas medan are" width="300" height="200">
+        <p style="color:rgb(230, 219, 219);margin-left:20px;">PERPUSTAKAAN UNIVERSITAS MEDAN AREA</p>
+        </a>
+    </div>
+        <!-- content 3 end-->
+     </div>
+
+<h1> audio</h1>
+     <audio controls>
+        <source src="duvet1.mp3" type="audio/mpeg">
+       </audio>
+
+<h1> video</h1>
+<video controls width="300" height="200">
+    <source src="video perpus umsu.mp4" type="video/mp4">
+</video>
+
+     <div id="formulir anggota perpustakaan">
+        <h2>Formulir Anggota Perpustakaan</h2>
+        <table border="1">
+            <form action="" method="POST"
+        <table>
+                <tr>
+                     <td>Nama</td>
+                     <td><input type="text"></td>
+                 </tr>
+            
+                  <tr>
+                    <td>NIM</td>
+                    <td><input type="number"></td>
+                </tr>
+            
+                <tr>
+                    <td>Tanggal</td>
+                    <td><input type="date"></td>
+                </tr>
+            
+                <tr>
+                    <td>Jenis Kelamin</td>
+                    <td><input type="radio" name="jk"> Pria
+                        <input type="radio" name="jk"> Wanita
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>Alamat</td>
+                    <td><textarea></textarea></td>
+                </tr>
+            
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="simpan">
+                        <input type="reset" value="reset">
+                        <input type="button" value="kembali">
+                    </td>
+                </tr>
+        </table>
+     </div>
+     <div>
+        <div id="book collection">
+            <h2>book collection</h2>
+            <table border="1">
+                <tr>
+                    <th>Judul Buku</th>
+                    <th>Penulis</th>
+                    <th>Tahun Terbit</th>
+                    <th>No. Panggil</th>
+                </tr>
+                <tr>
+                    <td>Hukum perkawinan indonesia</td>
+                    <td>Refika Aditama</td>
+                    <td>2016</td>
+                    <td>364.016 Isn h</td>
+                </tr>
+                <tr>
+                    <td>233 tanya jawab seputar hukum bisnis</td>
+                    <td>Pustaka Utami Grafiti</td>
+                    <td>2011</td>
+                    <td>346.07 Pra d</td>
+                </tr>
+            </table>
+        </div>
+    <div id="form-pemesanan">
+        <h2>Reservation</h2>
+        <form action="proses_pemesanan.php" method="POST">
+            <label for="judul">Judul Buku:</label><br>
+            <input type="text" id="judul" name="judul"><br>
+            <label for="judul">Nama:</label><br>
+            <input type="text" id="nama" name="nama"><br>
+            <label for="NIM">JNIM:</label><br>
+            <textarea id="NIM" name="NIM"></textarea><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="form-perpanjangan">
+        <h2>Renewa Form</h2>
+        <form action="proses_perpanjangan.php" method="POST">
+            <label for="kode_buku">Kode Buku:</label><br>
+            <input type="text" id="kode_buku" name="kode_buku"><br>
+            <label for="nama">Nama Peminjam:</label><br>
+            <input type="text" id="nama" name="nama"><br>
+            <label for="NIM">NIM:</label><br>
+            <input type="NIM" id="NIM" name="NIM"><br>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title> ABOUT HTML & CSS </title>
+            <link rel="stylesheet" href="modul3.css">
+    </head>
+
+    <body>
+        <h1> Tentang HTML (HyperText Markup Language) </h1>
+        <p> HTML adalah bahasa markah yang digunakan untuk membuat struktur dan konten pada halaman web. 
+            Dengan HTML, elemen-elemen seperti teks, gambar, hyperlink, dan video dapat ditempatkan dan diatur secara hierarkis. 
+            Setiap elemen HTML didefinisikan oleh tag, yang menggambarkan fungsi dan tampilan elemen tersebut.</p>
+
+        <h2> Tentang CSS (Cascading Style Sheets) </h2>
+        <p> CSS adalah bahasa gaya yang digunakan untuk mengatur tampilan 
+            dan tata letak elemen-elemen HTML pada halaman web. Dengan CSS, kita dapat mengontrol 
+            warna, font, ukuran, jarak, dan banyak aspek visual lainnya dari elemen-elemen HTML. </p>
+    </body>
+</html>
+<!-- about -->
+<section class="about" id="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h2 class="text-center">About us</h2>
+        </div>
+      </div>
+
+          <p> Halo! Terima kasih telah mengunjungi website ini
+
+            Website ini dibuat untuk memenuhi tugas pada mata kuliah Pemrograman Web Praktik dengan dosen pengampu Ibu Himma Dewiyana, S.T., M.Hum pada program studi S-1 Perpustakaan dan Sains Informasi, Fakultas Ilmu Budaya, Universitas Sumatera Utara.</p>
+        </div>
+        <!-- footer -->
+    <footer>
+        <div class="container text-center">
+          <div class="row">
+            <div class="col-sm-12">
+              <p>&copy; copyright Juli chairani 210709022</p>
+            </div>
+          </div>

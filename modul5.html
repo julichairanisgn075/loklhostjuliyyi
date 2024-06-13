@@ -1,0 +1,185 @@
+<html>
+<head>
+    <title>Perpustakaan NHR</title>
+    <link rel="stylesheet" href="dropdown.css">
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid rgb(255, 255, 255);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            background-color: #dabebe;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input, button {
+            padding: 8px;
+            margin: 5px;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+   
+</head>
+
+<div class="navbar">
+    <a href="Home.html">Beranda</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Modul 1
+      <i class="fa fa-caret-down"></i>
+    </button>
+  <div class="dropdown-content">
+    <a href="eksternal.html">Modul 1.1 Perpustakaan Eksternal</a>
+    <a href="Multimedia.html">Modul 1.2 Video dan Audio</a>
+    </div>
+    </div>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Modul 2
+      <i class="fa fa-caret-down"></i>
+    </button>
+  <div class="dropdown-content">
+    <a href="koleksi.html">Modul 2.1 Koleksi Buku</a>
+    <a href="Keanggotaan.html">Modul 2.2 Formulir Keanggotaan</a>
+    <a href="Peminjaman.html">Modul 2.3 Formulir Peminjaman Buku</a>
+    <a href="Perpanjangan.html">Modul 2.4 Formulir Perpanjangan Peminjaman</a>
+    </div>
+    </div>
+      <a href="html&css.html">Modul 3</a>
+  <div class="dropdown">
+    <button class="dropbtn"> Modul 4
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="4.1.html">Modul 4.1 </a>
+      <a href="koleksi.html">Modul 4.2</a>
+      <a href="Keanggotaan.html">Modul 4.3</a>
+    </div>
+  </div>
+  
+    <a href="Modul 5.html"> Modul 5</a>
+  
+    <a href="Modul 6.html">Modul 6</a>
+  
+    <div class="dropdown">
+      <button class="dropbtn"> Modul 7
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="7.1.html">Modul 7.1 PHP (1000) </a>
+        <a href="7.2.html">Modul 7.2 Kalkulator</a>
+        <a href="7.3.html">Modul 7.3 Login</a>
+      </div>
+    </div>
+  
+    <a href="Modul 8.html">Modul 8</a>
+    <a href="About Us.html"> Tentang Kami</a>
+  <a href="Contact Us.html">Hubungi</a>
+  
+  </div>
+<body>
+    <h1>Library Database</h1>
+    <table id="libraryTable">
+        <thead>
+            <tr>
+                <th>Judul</th>
+                <th>Penulis</th>
+                <th>Tahun</th>
+                <th>ISBN</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data rows will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+
+    <form id="libraryForm">
+        <input type="hidden" id="editIndex">
+        <input type="text" id="title" placeholder="Title" required>
+        <input type="text" id="author" placeholder="Author" required>
+        <input type="number" id="year" placeholder="Year" required>
+        <input type="text" id="isbn" placeholder="ISBN" required>
+        <button type="button" onclick="addOrUpdateBook()">Tambah/Perbarui</button>
+    </form>
+
+    <script>
+        let libraryData = [
+            { title: "Harry Potter and the Philosopher's Stone", author: "J.K. Rowling", year: 1997, isbn: "9780747532743" },
+            { title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960, isbn: "9780061120084" },
+            { title: "1984", author: "George Orwell", year: 1949, isbn: "9780141036144" },
+            { title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1951, isbn: "9780743273565" },
+        ];
+
+        function displayLibrary() {
+            const tbody = document.getElementById('libraryTable').getElementsByTagName('tbody')[0];
+            tbody.innerHTML = "";
+            libraryData.forEach((book, index) => {
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td>${book.title}</td>
+                    <td>${book.author}</td>
+                    <td>${book.year}</td>
+                    <td>${book.isbn}</td>
+                    <td>
+                        <button onclick="editBook(${index})">Edit</button>
+                        <button onclick="deleteBook(${index})">Hapus</button>
+                    </td>
+                `;
+            });
+        }
+
+        function addOrUpdateBook() {
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const year = document.getElementById('year').value;
+            const isbn = document.getElementById('isbn').value;
+            const editIndex = document.getElementById('editIndex').value;
+
+            const book = { title, author, year, isbn };
+
+            if (editIndex === "") {
+                libraryData.push(book);
+            } else {
+                libraryData[editIndex] = book;
+                document.getElementById('editIndex').value = "";
+            }
+
+            document.getElementById('libraryForm').reset();
+            displayLibrary();
+        }
+
+        function editBook(index) {
+            const book = libraryData[index];
+            document.getElementById('title').value = book.title;
+            document.getElementById('author').value = book.author;
+            document.getElementById('year').value = book.year;
+            document.getElementById('isbn').value = book.isbn;
+            document.getElementById('editIndex').value = index;
+        }
+
+        function deleteBook(index) {
+            libraryData.splice(index, 1);
+            displayLibrary();
+        }
+
+        displayLibrary();
+    </script>
+<script src="https://www.drv.tw/inc/wd.js?s=welcometoatinylibrary1"></script></body>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer style="background-color: rgb(185, 51, 51); text-align: center; ">
+ <p style="color: azure;">&copy;  by NURUL HASANAH RITONGA </p>
+</footer>
+</html>
